@@ -1,0 +1,172 @@
+
+我们所要了解linux命令
+
+规则：
+	cmd option argument
+小心机:
+	命令Tab键补齐
+	上下方向键，查找历史命令
+	man 1 cmd产看命令手册
+
+1.文件操作
+	ls  [path]
+	pwd	打印当前工作路径
+	cd	切换工作路径(相对路径(相对于当前), 绝对路径(/))
+	cd Enter / cd ~ --->切换到登陆帐号的家目录
+	mkdir [新目录的路径名]
+	touch [文件路径]
+	rm [文件路径]
+		如果是目录:rm -r [路径]
+	cp [-r] src_path dest_path
+	mv [src_path] [dest_path]	
+	cat [文件路径] 查看文件内容
+
+2.网络
+	查看ip
+		ifconfig		
+	查看网络连通状态
+		ping 172.16.8.100
+	关闭防火墙
+		systemctl stop firewalld.service
+		开机禁止使用	
+		systemctl disable firewalld.service
+
+3.文件共享
+	<1>vsftpd	
+		sudo yum install vsftpd 
+		启动服务
+			service vsftpd restart
+	用终端访问ftp共享目录
+		安装lftp
+			sudo yum install lftp
+		登陆
+			lftp 172.25.1.206
+			get [file] 下载文件
+			mirror [dir] 下载目录		
+			lcd [path] 切换下载路径
+			quit/exit/bye	推出
+	<2>版本控制git
+	<3>nfs
+					
+3.软件包管理
+	<1>源码包(压缩包，xxxx.tar.gz, xxxx.tar.bz2, xxx.tar.xz)
+		解压解包
+			tar -xvf xxxx.tar.xx
+		进入此压缩包目录
+			cd xxxx 有README.txt  / INSTALL.txt
+			sudo ./configure
+			sudo make
+			sudo make install
+
+	<2>二进制包(.rpm)
+		下载rpm包  xxxx.rpm
+		sudo yum install [xxxx.rpm]
+
+		也可以使用rpm管理安装rpm软件包
+			rpm -ivh [xxx]
+			rpm -e [xxx]
+
+	<3>yum 源(推荐)	
+		优势:解决依赖
+		sudo:切换root身份
+		sudo yum install [lftp]
+		sudo yum remove [lftp]
+		更多man yum
+
+4.vim编辑器的使用
+	<1>在终端下输入vim [file] 打开vim编辑器---->进入vim的一般模式
+	<2>如果要编辑文件则通过以下方式进入插入模式：
+		i 字符前
+		I 行前
+		a 字符后
+		A 行末
+		o 下一行
+		O 上一行
+		s 删除字符并插入
+		S 删除行并插入
+	<3>文件保存须进入命令行模式
+		Esc 从插入模式进入一般模式
+		: 从插入模式进入命令行模式		
+		在命令模式下有以下基本操作
+			w 保存		
+			q 推出
+			w! 强制保存
+			q! 强制退出
+			wq!强制保存退出
+			wqa 将打开的所有的文件保存退出
+
+	
+	一般模式下的常用操作
+		复制		yy
+		复制多行 	[2]yy
+		剪切		dd
+		粘贴		p / P
+		替换一个字符	r
+		替换模式	R
+		删除一个字符	x / del
+		首行		gg	
+		末行		G
+		10行		10G
+		块选择		ctrl+v
+		所选择块的行首插入 I --->收入插入插入内容---->按两下Esc 
+		所选择块的行末尾插入 A --->收入插入插入内容---->按两下Esc 
+
+	命令行模式
+		替换
+			:%s/old/new/g 将文件中所有出现的old字符串替换成new
+			:1, 10s/old/new/g 将文件中从第一行到第10行中所有的old替换为new
+			:25,$s/old/new/g 将文件中从25开始到最后出现的old替换为new
+
+			:set nu 显示行号
+			:set mouse=a 鼠标使能
+			:set ts=4 设置Tab宽度
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
