@@ -13,10 +13,20 @@ item = '''计算机科学
 print(name, school, item, 专业)
 
 # 字符串中每一个字符的索引从0开始
-stu = "么济恺"
+stu = "么济恺希雅abc"
+
+# stu[start:end:step]
+print("****************************")
+print(stu)
+print("{}".format(stu[0:]))
+print("{}".format(stu[0::3]))
+print("{}".format(stu[-1:0:-3]))
+print("****************************")
+
 print("{}大人,好好学习".format(stu[0]))
 print("{}同志，辛苦了".format(stu[1:]))
-print("{}同志，辛苦了".format(stu[1:-1])) #在序列中[a, b]  a<= <b
+print("{}好同学哈哈，你是最帅的".format(stu[1:-3])) #在序列中[a, b]  a<= <b
+print("{}同志，辛苦了".format(stu[5::-3])) #在序列中[a, b]  a[5] 从a[5]倒叙数到-3
 print("{}同志，辛苦了".format(stu[-1]))
 
 #stu[2] = "欢" 字符串是个常量，不能改变
