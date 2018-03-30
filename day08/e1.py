@@ -18,6 +18,7 @@ if __name__ == "__main__":
 	
 	# 获取当前的年月日
 	s = datetime.date.strftime(datetime.datetime.now(), "%Y%m%d")
+	print(s)
 	mytime(s)
 	
 	turtle.done()

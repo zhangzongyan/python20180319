@@ -6,8 +6,18 @@ import turtle as tt
 # 画线
 def drawLine(isdraw):
 	tt.pendown() if isdraw else tt.penup()
-	tt.pensize(5)
-	tt.forward(40)
+	if isdraw == True:
+		tt.pensize(5)
+		tt.penup()
+		tt.fd(5)
+		tt.pendown()
+		tt.forward(40)
+		tt.penup()
+		tt.fd(5)
+		tt.pendown()
+	else:
+		tt.fd(50)
+
 	tt.right(90)
 
 # 画数字 0 1 2 3 4 5 6 7 8 9
