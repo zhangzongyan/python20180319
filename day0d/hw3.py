@@ -21,17 +21,21 @@ class PhoneBook(object):
 		# python xxx.py books	
 		if len(sys.argv) < 2:
 			print("you should mark you phonebook")
-			sys.exit(1)
+			sys.exit(100)
 		else:
 			# sys.argv[1]就是我们的电话本文件	
-			if os.path.exists(sys.argv[1]) == True:
-				#电话本文件已存在---->读出联系人信息--->存到字典中	
-				with open(sys.argv[1], "rb") as f:
-					self.pbdic = pickle.load(f)   #pbdic存放已有联系人的字典
-			else:
-				#电话本不存在
-				self.pbdic = {} #空字典
-				print("this is a debug")
+			try:
+				if os.path.exists(sys.argv[1]) == True:
+					#电话本文件已存在---->读出联系人信息--->存到字典中	
+					with open(sys.argv[1], "rb") as f:
+						self.pbdic = pickle.load(f)   #pbdic存放已有联系人的字典
+				else:
+					#电话本不存在
+					self.pbdic = {} #空字典
+					print("this is a debug")
+			except EOFError:
+				#有电话本文件,但是一个空文件
+				self.pbdic = {}
 
 	def addPerson(self, name, person):
 		# 添加的联系人是否存在
@@ -54,8 +58,9 @@ class PhoneBook(object):
 
 	def updateNamePerson(self, name, newname):
 		if name == newname:
-			print("你的联系人姓名并未修改!!!!!")
-			return
+			#print("你的联系人姓名并未修改!!!!!")
+			#return
+			raise ValueError("你瞎传递什么呢")		
 		for key in self.pbdic.keys():
 			if key == name:
 				self.pbdic[key].setName(newname)
@@ -136,7 +141,10 @@ if __name__ == "__main__":
 			name = input("请输入你要修改的联系人姓名:")
 			if c == Update.UPDATENAME.value:
 				newname = input("请输入修改后的名字:")
-				myphone.updateNamePerson(name, newname)
+				try:
+					myphone.updateNamePerson(name, newname)
+				except ValueError:
+					print("你输入的名字不正确")
 			elif c == Update.UPDATETEL.value:
 				newtel = input("请输入此联系人的新号码:")
 				myphone.updatePersonTel(name, newtel)
