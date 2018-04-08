@@ -1,0 +1,14 @@
+2018-04-08 17:22:48,795-root-这是一个错误信息
+Traceback (most recent call last):
+  File "w5.py", line 12, in <module>
+    print(foo('0'))
+  File "w5.py", line 9, in foo
+    return 10 / s
+ZeroDivisionError: division by zero
+2018-04-08 17:26:24,082-root-这是一个错误信息-ERROR
+Traceback (most recent call last):
+  File "w5.py", line 12, in <module>
+    print(foo('0'))
+  File "w5.py", line 9, in foo
+    return 10 / s
+ZeroDivisionError: division by zero
