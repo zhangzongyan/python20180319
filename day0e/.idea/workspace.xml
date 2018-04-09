@@ -27,11 +27,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="w6.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="w6.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/w6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="35" />
+            <state relative-caret-position="525">
+              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding>
                 <element signature="e#26#67#0" expanded="true" />
               </folding>
@@ -63,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="w8.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="w8.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/w8.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-69">
@@ -103,10 +103,10 @@
         <option value="$PROJECT_DIR$/w3.py" />
         <option value="$PROJECT_DIR$/w4.py" />
         <option value="$PROJECT_DIR$/w5.py" />
-        <option value="$PROJECT_DIR$/w6.py" />
         <option value="$PROJECT_DIR$/w7.py" />
         <option value="$PROJECT_DIR$/e2.py" />
         <option value="$PROJECT_DIR$/w8.py" />
+        <option value="$PROJECT_DIR$/w6.py" />
       </list>
     </option>
   </component>
@@ -574,16 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/w6.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="35" />
-          <folding>
-            <element signature="e#26#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/w7.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -628,6 +618,16 @@
           <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
             <element signature="e#139#186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#26#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
