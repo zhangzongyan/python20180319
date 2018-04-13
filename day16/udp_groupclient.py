@@ -20,7 +20,7 @@ option:IP_ADD_MEMBERSHIP
 multiaddr:ipv4 32整型数地址
 点分十进制--->整型 inet_aton()
 '''
-clientsd.setsockopt(s.IPPROTO_IP, s.IP_ADD_MEMBERSHIP, s.inet_aton(GROUP)+s.inet_aton("0.0.0.0"))
+clientsd.setsockopt(s.IPPROTO_IP, s.IP_ADD_MEMBERSHIP, s.inet_aton(GROUP)+s.inet_aton("172.25.1.206"))
 
 rcvdata, raddr = clientsd.recvfrom(1024)
 print("服务器:", rcvdata.decode('utf-8'))
