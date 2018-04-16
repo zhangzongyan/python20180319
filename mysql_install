@@ -2,7 +2,7 @@ cetos7.2安装mysql
 1.默认安装的是mariadb，首先卸载
 	sudo yum -y remove mariadb*
 2.下载要安装的mysql
-	wget -P /home/reala http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+	wget -P ~ http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
  工作目录切换到到家目录
 	cd ~
 3.安装
@@ -43,6 +43,8 @@ cetos7.2安装mysql
 
 			如果给root设定密码
 			set password for 'root'@'localhost' = password('123456');
+			如果失败:
+			flush privileges
 	
 			设置完密码之后就可以使用mysql -u root -p 命令来登录我们的mysql数据库了	
 
@@ -66,11 +68,15 @@ cetos7.2安装mysql
 		pip install pymysql
 
 11.mysql -u root -p
-mysql>show datebases; #查看所有的数据库
+mysql>show databases; #查看所有的数据库
 mysql>creat database dbname; #创建数据库
-mysql>user tablename; #进入tablename数据库
+mysql>use tablename; #进入tablename数据库
 mysql>show tables; #查看库中所有的表
 
-
+12.使得mysql能够存储中文
+sudo vim /etc/my.cnf
+[mysqld]
+default-character-set = utf8
+character_set_server = utf8
 
 
