@@ -1,0 +1,76 @@
+cetos7.2安装mysql
+1.默认安装的是mariadb，首先卸载
+	sudo yum -y remove mariadb*
+2.下载要安装的mysql
+	wget -P /home/reala http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+ 工作目录切换到到家目录
+	cd ~
+3.安装
+	sudo rpm -ivh mysql57-community-release-el7-11.noarch.rpm 
+4.查看当前使用的mysql版本
+	yum repolist enabled | grep "mysql.*-community.*" 
+5.查看所有的版本，当前版本显示启动，其他显示禁用
+	yum repolist all | grep mysql
+版本可以切换
+	yum-config-manager --enable mysql57-community
+
+	yum-config-manager --disable mysql56-community
+
+或者通过修改vim /etc/yum.repos.d/mysql-community.repo文件，改变默认安装的mysql版本。比如要安装5.6版本，将5.7源的enabled=1改成enabled=0，然后再将5.6源的enabled=0改成enabled=1即可。	
+
+5.安装mysql-server
+	sudo yum install mysql-community-server
+6.启动此服务
+	systemctl start mysqld
+	查看状态
+	systemctl status mysqld
+
+	systemctl stop mysqld    #停止mysqld
+	
+	systemctl restart mysqld    #重启mysqld
+	
+	systemctl enable mysqld   #设置开机启动
+
+7.mysql相关配置
+	在安装mysql的时候会生成默认随机密码，所有首先免密，然后再修改密码
+		免密设置：
+			打开配置文件/etc/my.cnf
+			在[mysqld]下添加
+			skip-grant-tables
+		即可登陆
+			mysql -u root -p
+			直接回车不需要输入密码
+
+			如果给root设定密码
+			set password for 'root'@'localhost' = password('123456');
+	
+			设置完密码之后就可以使用mysql -u root -p 命令来登录我们的mysql数据库了	
+
+8.创建用户
+	CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+	说明：
+	username：你将创建的用户名
+	host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%
+	password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器
+
+9.授权:
+	命令:
+	GRANT privileges ON databasename.tablename TO 'username'@'host'
+	说明:
+	privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL
+	databasename：数据库名
+	tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*
+
+10.连接数据库
+	安装pymysql
+		pip install pymysql
+
+11.mysql -u root -p
+mysql>show datebases; #查看所有的数据库
+mysql>creat database dbname; #创建数据库
+mysql>user tablename; #进入tablename数据库
+mysql>show tables; #查看库中所有的表
+
+
+
+
