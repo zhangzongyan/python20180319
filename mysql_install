@@ -76,7 +76,10 @@ mysql>show tables; #查看库中所有的表
 12.使得mysql能够存储中文
 sudo vim /etc/my.cnf
 [mysqld]
-default-character-set = utf8
-character_set_server = utf8
+skip-grant-tables
+[client]
+default-character-set=utf8 
+[mysql]
+default-character-set=utf8
 
 
