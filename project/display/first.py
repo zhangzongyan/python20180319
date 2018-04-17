@@ -22,9 +22,15 @@ bg = pygame.image.load("../images/bg.png").convert_alpha()
 # 牛郎图片
 nl_image = pygame.image.load("../images/niulang.png").convert_alpha()
 
+# 织女图片
+zv_image = pygame.image.load("../images/zhinv.png")
+
+#牛郎运动速度
 speed = [1,1]
 x, y = 0, 0
 
+clock = pygame.time.Clock()
+# 循环一次就是一帧
 while True:
     # 当关闭窗口 , 界面退出 ,进程终止
     for event in pygame.event.get():
@@ -46,8 +52,17 @@ while True:
     x += speed[0]
     y += speed[1]
 
+    # 画织女--->鼠标
+    # 获取鼠标位置
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    z_x = mouse_x-zv_image.get_width() / 2
+    z_y = mouse_y-zv_image.get_height() / 2
+    screen.blit(zv_image, (z_x, z_y))
+
     # 刷新
     pygame.display.flip() # pygame.display.update()
+    clock.tick(30) # 帧刷新速度
+
 
 
 
