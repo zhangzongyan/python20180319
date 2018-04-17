@@ -12,6 +12,9 @@ pygame.display.set_caption("检测按键时间")
 # background
 bg = pygame.image.load("../images/bg.png")
 nl_img = pygame.image.load("../images/niulang.png")
+nl_rect = nl_img.get_rect()
+print(nl_rect.width, nl_rect.height)
+
 # clock控制速度
 clock = pygame.time.Clock()
 
