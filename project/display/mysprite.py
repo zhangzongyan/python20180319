@@ -19,10 +19,17 @@ def main():
     pygame.init()
     # 初始化音乐
     pygame.mixer.init()
-    #加载背景音乐
+    #加载背景音乐---->只能有一个
     bg_music = pygame.mixer.music.load("../testsounds/bg_music.ogg")
     pygame.mixer.music.set_volume(0.8)
-    pygame.mixer.music.play()
+    pygame.mixer.music.play(-1) # 背景音乐循环播放
+
+    # 音效 ---> 可以有多个
+    win_sound = pygame.mixer.Sound("../testsounds/winner.wav")
+    win_sound.set_volume(0.7)
+    laugh_sound = pygame.mixer.Sound("../testsounds/laugh.wav")
+    laugh_sound.set_volume(1)
+
     screen = pygame.display.set_mode((800, 600))
     pygame.display.set_caption("精灵是个好东西")
     bg_img = pygame.image.load("../images/bg.png").convert_alpha()
@@ -74,6 +81,8 @@ def main():
         blocklist = pygame.sprite.spritecollide(nl, group, True, pygame.sprite.collide_mask)
         for b in blocklist:
             zv.remove(b)
+            win_sound.play(maxtime=500)
+            laugh_sound.play()
 
         pygame.display.flip()
         clock.tick(30)
