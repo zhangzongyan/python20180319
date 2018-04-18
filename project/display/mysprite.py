@@ -17,6 +17,12 @@ class CharactPerson(pygame.sprite.Sprite):
 
 def main():
     pygame.init()
+    # 初始化音乐
+    pygame.mixer.init()
+    #加载背景音乐
+    bg_music = pygame.mixer.music.load("../testsounds/bg_music.ogg")
+    pygame.mixer.music.set_volume(0.8)
+    pygame.mixer.music.play()
     screen = pygame.display.set_mode((800, 600))
     pygame.display.set_caption("精灵是个好东西")
     bg_img = pygame.image.load("../images/bg.png").convert_alpha()
