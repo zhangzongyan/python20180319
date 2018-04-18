@@ -31,3 +31,13 @@ class MyPlane(pygame.sprite.Sprite):
         else:
             self.rect.bottom += self.speed
     # 左右
+    def move_left(self):
+        if self.rect.left < 0:
+            self.rect.left = 0
+        else:
+            self.rect.left -= self.speed
+    def move_right(self):
+        if self.rect.right > self.bg_size.width:
+            self.rect.right = self.bg_size.width
+        else:
+            self.rect.right += self.speed

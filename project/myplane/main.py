@@ -27,6 +27,16 @@ def main():
             if event.type == QUIT:
                 pygame.quit()
                 exit(1)
+        # 频繁按键
+        pressedkeys = pygame.key.get_pressed()
+        if pressedkeys[K_LEFT]:
+            myplane.move_left()
+        elif pressedkeys[K_RIGHT]:
+            myplane.move_right()
+        elif pressedkeys[K_UP]:
+            myplane.move_up()
+        elif pressedkeys[K_DOWN]:
+            myplane.move_down()
         # 画背景图片
         screen.fill((255,255,255))
         screen.blit(bg_img, bg_img.get_rect())
