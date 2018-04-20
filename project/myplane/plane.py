@@ -16,28 +16,30 @@ class MyPlane(pygame.sprite.Sprite):
         # 状态
         self.alive = True
         # 速度
-        self.speed = 2
+        self.speed = 10
         # 背景大小
         self.bg_size = bg_size
+        # 获取非透明区域
+        self.mask = pygame.mask.from_surface(self.image1)
 
     def move_up(self):
-        if self.rect.top < 0:
+        if self.rect.top <= 0:
             self.rect.top = 0
         else:
             self.rect.top -= self.speed
     def move_down(self):
-        if self.rect.bottom > self.bg_size.height-50:
+        if self.rect.bottom >= self.bg_size.height-50:
             self.rect.bottom = self.bg_size.height-50
         else:
             self.rect.bottom += self.speed
     # 左右
     def move_left(self):
-        if self.rect.left < 0:
+        if self.rect.left <= 0:
             self.rect.left = 0
         else:
             self.rect.left -= self.speed
     def move_right(self):
-        if self.rect.right > self.bg_size.width:
+        if self.rect.right >= self.bg_size.width:
             self.rect.right = self.bg_size.width
         else:
             self.rect.right += self.speed
