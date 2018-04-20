@@ -73,6 +73,17 @@ def main():
 
     # 设置刷新速度
     clock = pygame.time.Clock()
+
+    # 显示分数
+    score = 0
+    # font对象
+    fnt = pygame.font.Font('./font/myfont.ttf', 24)
+
+    # 背景音乐
+    pygame.mixer.init()
+    pygame.mixer.music.load("./sound/game_music.ogg")
+    pygame.mixer.music.play(-1)
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -106,6 +117,12 @@ def main():
                 # 子弹是否与敌机发生碰撞
                 colleny = pygame.sprite.spritecollide(d, enemies_group, False, pygame.sprite.collide_mask)
                 for e in colleny:
+                    if e in bigEny_group:
+                        score += 10000
+                    if e in midEny_group:
+                        score += 5000
+                    else:
+                        score += 1000
                     e.alive = False
                     d.alive = False
         # 绘制敌机
@@ -150,6 +167,10 @@ def main():
             for e in collide_plane:
                 e.alive = False
                 myplane.alive = False
+
+        myrender = fnt.render("Score:%d" % score, True, (234, 222, 56))
+        # 显示文字
+        screen.blit(myrender, myrender.get_rect())
 
         if myplane.alive:
             if not change_img:
