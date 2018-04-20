@@ -10,6 +10,12 @@ class MyPlane(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image1 = pygame.image.load("./images/me1.png").convert_alpha()
         self.image2 = pygame.image.load("./images/me2.png").convert_alpha()
+        # 销毁
+        self.destroy_images = [pygame.image.load("./images/me_destroy_1.png").convert_alpha(), \
+                               pygame.image.load("./images/me_destroy_2.png").convert_alpha(), \
+                               pygame.image.load("./images/me_destroy_3.png").convert_alpha(),
+                               pygame.image.load("./images/me_destroy_4.png").convert_alpha()]
+
         self.rect = self.image1.get_rect()
         self.rect.left, self.rect.top = ((bg_size.width-self.rect.width) / 2, \
                                          bg_size.height-self.rect.height - 50)

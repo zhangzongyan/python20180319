@@ -6,10 +6,12 @@ import pygame
 from pygame.locals import  *
 import plane
 import enemy
+import bullet
 
 SMALL_ENEMY_NUM = 15
 MID_ENEMY_NUM = 10
 BIG_ENEMY_NUM = 5
+BULLET_NUM = 5
 
 # 将敌机加入组中
 def add_group(group1, group2, eny):
@@ -56,6 +58,18 @@ def main():
     mid_index = 0
     big_index = 0
     me_index = 0
+    bullet_index = 0
+
+    print(myplane.rect.width)
+    print(myplane.rect.midtop)
+
+    # 实例化子弹对象
+    bullet_group = pygame.sprite.Group()
+    bulletlist = []
+    for i in range(BULLET_NUM):
+        b = bullet.Bullet(myplane.rect.midtop)
+        bullet_group.add(b)
+        bulletlist.append(b)
 
     # 设置刷新速度
     clock = pygame.time.Clock()
@@ -79,6 +93,21 @@ def main():
         screen.fill((255,255,255))
         screen.blit(bg_img, bg_img.get_rect())
 
+        # 子弹重置
+        if not delay % 10:
+            bulletlist[bullet_index].reset(myplane.rect.midtop)
+            bullet_index = (bullet_index + 1) % BULLET_NUM
+
+        # 绘制子弹
+        for d in bullet_group:
+            if d.alive:
+                d.move()
+                screen.blit(d.image, d.rect)
+                # 子弹是否与敌机发生碰撞
+                colleny = pygame.sprite.spritecollide(d, enemies_group, False, pygame.sprite.collide_mask)
+                for e in colleny:
+                    e.alive = False
+                    d.alive = False
         # 绘制敌机
         for e in bigEny_group:
             if e.alive:
@@ -120,7 +149,7 @@ def main():
             # 发生碰撞
             for e in collide_plane:
                 e.alive = False
-                #myplane.alive = False
+                myplane.alive = False
 
         if myplane.alive:
             if not change_img:
@@ -128,7 +157,12 @@ def main():
             else:
                 screen.blit(myplane.image2, myplane.rect)
         else:
-            running = False
+            # 销毁
+            screen.blit(myplane.destroy_images[me_index], myplane.rect)
+            if not delay % 10:
+                me_index += 1
+                if me_index == 4:
+                    running = False
         delay += 1
         if delay % 5 == 0:
             change_img = True
