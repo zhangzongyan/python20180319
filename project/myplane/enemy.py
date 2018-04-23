@@ -42,6 +42,7 @@ class SmallEnemy(pygame.sprite.Sprite):
                                             random.randint(-5 * self.height, 0))
 
 class MidEnemy(pygame.sprite.Sprite):
+    energy = 10
     def __init__(self, bg_size):
         pygame.sprite.Sprite.__init__(self)
         # 小敌机图片--->Surface
@@ -57,6 +58,8 @@ class MidEnemy(pygame.sprite.Sprite):
         self.width = bg_size.width
         self.height = bg_size.height
 
+        # 实例能量
+        self.energy = MidEnemy.energy
         # 位置
         self.rect.left, self.rect.top = (random.randint(0, self.width-self.rect.width),\
                                          random.randint(-10*self.height, -5 * self.height))
@@ -76,9 +79,11 @@ class MidEnemy(pygame.sprite.Sprite):
         self.alive = True
         self.rect.left, self.rect.top = (random.randint(0, self.width - self.rect.width), \
                                          random.randint(-10 * self.height, -5 * self.height))
+        self.energy = MidEnemy.energy
 
 
 class BigEnemy(pygame.sprite.Sprite):
+    energy = 20
     def __init__(self, bg_size):
         pygame.sprite.Sprite.__init__(self)
         # 小敌机图片--->Surface
@@ -96,6 +101,8 @@ class BigEnemy(pygame.sprite.Sprite):
         # 背景的宽度, 高度
         self.width = bg_size.width
         self.height = bg_size.height
+
+        self.energy = BigEnemy.energy
 
         # 位置
         self.rect.left, self.rect.top = (random.randint(0, self.width - self.rect.width), \
@@ -118,4 +125,5 @@ class BigEnemy(pygame.sprite.Sprite):
         self.alive = True
         self.rect.left, self.rect.top = (random.randint(0, self.width - self.rect.width), \
                                          random.randint(-15 * self.height, -10*self.height))
+        self.energy = BigEnemy.energy
 

@@ -26,6 +26,9 @@ def main():
     # bg图片
     bg_img = pygame.image.load("./images/background.png").convert_alpha()
 
+    # 标题
+    pygame.display.set_caption("飞机大战--Bata")
+
     # 实例化我方飞机
     myplane = plane.MyPlane(bg_img.get_rect())
 
@@ -54,7 +57,6 @@ def main():
         add_group(enemies_group, bigEny_group, small)
 
     # 销毁索引
-    small_index = 0
     mid_index = 0
     big_index = 0
     me_index = 0
@@ -117,14 +119,19 @@ def main():
                 # 子弹是否与敌机发生碰撞
                 colleny = pygame.sprite.spritecollide(d, enemies_group, False, pygame.sprite.collide_mask)
                 for e in colleny:
-                    if e in bigEny_group:
-                        score += 10000
-                    if e in midEny_group:
-                        score += 5000
-                    else:
+                    if e in smallEny_group:
                         score += 1000
-                    e.alive = False
+                        e.alive = False
+                    else:
+                        e.energy -= 1
+                        if e.energy == 0:
+                            if e in bigEny_group:
+                                score += 10000
+                            else:
+                                score += 5000
+                            e.alive = False
                     d.alive = False
+
         # 绘制敌机
         for e in bigEny_group:
             if e.alive:
@@ -133,6 +140,18 @@ def main():
                     screen.blit(e.image1, e.rect)
                 else:
                     screen.blit(e.image2, e.rect)
+                # 绘制血槽
+                pygame.draw.line(screen, (0,0,0), (e.rect.left, e.rect.top-5), \
+                                 (e.rect.right, e.rect.top-5), 2)
+                # 余血
+                current_egy = e.energy / enemy.BigEnemy.energy
+                if current_egy < 0.2:
+                    color_paint = (255, 0, 0)
+                else:
+                    color_paint = (0, 255, 0)
+                pygame.draw.line(screen, color_paint, (e.rect.left, e.rect.top - 5), \
+                                 (e.rect.left + e.rect.width * current_egy, e.rect.top - 5), 2)
+
             else:
                 screen.blit(e.destroy_image[big_index], e.rect)
                 if delay % 3 == 0:
@@ -145,6 +164,17 @@ def main():
             if e.alive:
                 e.move()
                 screen.blit(e.image, e.rect)
+                # 绘制血槽
+                pygame.draw.line(screen, (0, 0, 0), (e.rect.left, e.rect.top - 5), \
+                                 (e.rect.right, e.rect.top - 5), 2)
+                # 余血
+                current_egy = e.energy / enemy.MidEnemy.energy
+                if current_egy < 0.2:
+                    color_paint = (255,0,0)
+                else:
+                    color_paint = (0,255,0)
+                pygame.draw.line(screen, color_paint, (e.rect.left, e.rect.top - 5), \
+                                 (e.rect.left+e.rect.width * current_egy, e.rect.top - 5), 2)
             else:
                 screen.blit(e.destroy_image[mid_index], e.rect)
                 if delay % 3 == 0:
@@ -166,7 +196,7 @@ def main():
             # 发生碰撞
             for e in collide_plane:
                 e.alive = False
-                myplane.alive = False
+                #myplane.alive = False
 
         myrender = fnt.render("Score:%d" % score, True, (234, 222, 56))
         # 显示文字

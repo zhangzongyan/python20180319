@@ -15,7 +15,7 @@
     <SUITE FILE_PATH="coverage/project$mysprite__1_.coverage" NAME="mysprite (1) Coverage Results" MODIFIED="1524017017620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/display" />
     <SUITE FILE_PATH="coverage/project$sprite.coverage" NAME="sprite Coverage Results" MODIFIED="1524192553015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.pyenv/versions/3.6.4/lib/python3.6/site-packages/pygame" />
     <SUITE FILE_PATH="coverage/project$event_key.coverage" NAME="event_key Coverage Results" MODIFIED="1523947079020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/display" />
-    <SUITE FILE_PATH="coverage/project$main.coverage" NAME="main Coverage Results" MODIFIED="1524206259662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myplane" />
+    <SUITE FILE_PATH="coverage/project$main.coverage" NAME="main Coverage Results" MODIFIED="1524451042933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myplane" />
     <SUITE FILE_PATH="coverage/project$enemy.coverage" NAME="enemy Coverage Results" MODIFIED="1524191415137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myplane" />
     <SUITE FILE_PATH="coverage/project$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1523938750853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
     <SUITE FILE_PATH="coverage/project$mysprite.coverage" NAME="mysprite Coverage Results" MODIFIED="1523951228487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/images" />
@@ -23,36 +23,22 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myplane/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
-              <folding>
-                <element signature="e#37#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bullet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myplane/bullet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plane.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myplane/plane.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="16" column="72" lean-forward="false" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+            <state relative-caret-position="-528">
+              <caret line="136" column="23" lean-forward="true" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -61,8 +47,8 @@
       <file leaf-file-name="enemy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myplane/enemy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="119" column="90" lean-forward="false" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
+            <state relative-caret-position="426">
+              <caret line="127" column="37" lean-forward="false" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
               <folding>
                 <element signature="e#37#50#0" expanded="true" />
               </folding>
@@ -86,9 +72,9 @@
         <option value="$PROJECT_DIR$/display/event_key.py" />
         <option value="$PROJECT_DIR$/images/mysprite.py" />
         <option value="$PROJECT_DIR$/display/mysprite.py" />
-        <option value="$PROJECT_DIR$/myplane/enemy.py" />
         <option value="$PROJECT_DIR$/myplane/bullet.py" />
         <option value="$PROJECT_DIR$/myplane/plane.py" />
+        <option value="$PROJECT_DIR$/myplane/enemy.py" />
         <option value="$PROJECT_DIR$/myplane/main.py" />
       </list>
     </option>
@@ -144,24 +130,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="myplane" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myplane" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sound" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,13 +479,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1600" height="838" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="28" width="1600" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14941785" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14683053" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988358" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2731214" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -549,9 +517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -567,9 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -577,20 +539,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#50#0" expanded="true" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/niulang.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/zhinv.png">
@@ -787,16 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myplane/enemy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="119" column="90" lean-forward="false" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
-          <folding>
-            <element signature="e#37#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myplane/images/bullet2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -807,29 +746,47 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myplane/bullet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myplane/plane.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="528">
           <caret line="16" column="72" lean-forward="false" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myplane/main.py">
+    <entry file="file://$PROJECT_DIR$/images/niulang.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myplane/bullet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+        <state relative-caret-position="594">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myplane/enemy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="127" column="37" lean-forward="false" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
           <folding>
             <element signature="e#37#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myplane/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-528">
+          <caret line="136" column="23" lean-forward="true" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
