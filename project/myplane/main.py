@@ -13,11 +13,31 @@ MID_ENEMY_NUM = 10
 BIG_ENEMY_NUM = 5
 BULLET_NUM = 5
 
-# 将敌机加入组中
-def add_group(group1, group2, eny):
-    group1.add(eny)
-    group2.add(eny)
+# 创建指定个数的小型敌机 并加入组内
+def add_small_enemy(group1, group2, num, bg_rect):
+    for i  in range(num):
+        each = enemy.SmallEnemy(bg_rect)
+        group1.add(each)
+        group2.add(each)
 
+# 创建指定个数的中型敌机 并加入组内
+def add_mid_enemy(group1, group2, num, bg_rect):
+    for i  in range(num):
+        each = enemy.MidEnemy(bg_rect)
+        group1.add(each)
+        group2.add(each)
+
+# 创建指定个数的大型敌机 并加入组内
+def add_big_enemy(group1, group2, num, bg_rect):
+    for i  in range(num):
+        each = enemy.BigEnemy(bg_rect)
+        group1.add(each)
+        group2.add(each)
+
+# 改变敌机组内敌机速度
+def speed_increace(group, inc):
+    for e in group:
+        e.speed += inc
 def main():
     # 初始化游戏
     pygame.init()
@@ -45,20 +65,15 @@ def main():
     # 小敌机组
     smallEny_group = pygame.sprite.Group()
     # 实例化小型机-->15个
-    for i in range(SMALL_ENEMY_NUM):
-        small = enemy.SmallEnemy(bg_img.get_rect())
-        add_group(enemies_group, smallEny_group, small)
+    add_small_enemy(smallEny_group, enemies_group, SMALL_ENEMY_NUM, bg_img.get_rect())
+
     # 中敌机组
     midEny_group = pygame.sprite.Group()
-    for i in range(MID_ENEMY_NUM):
-        small = enemy.MidEnemy(bg_img.get_rect())
-        add_group(enemies_group, midEny_group, small)
+    add_mid_enemy(midEny_group, enemies_group, MID_ENEMY_NUM, bg_img.get_rect())
 
     # 大敌机组
     bigEny_group = pygame.sprite.Group()
-    for i in range(BIG_ENEMY_NUM):
-        small = enemy.BigEnemy(bg_img.get_rect())
-        add_group(enemies_group, bigEny_group, small)
+    add_big_enemy(bigEny_group, enemies_group, BIG_ENEMY_NUM, bg_img.get_rect())
 
     # 销毁索引
     mid_index = 0
@@ -100,6 +115,16 @@ def main():
     pause_rect.left, pause_rect.top = (width-pause_rect.width -5, 5)
     pause_flag = False
 
+    # 等级
+    level = 1
+
+    # 炸弹
+    bomb_img = pygame.image.load("./images/bomb.png").convert_alpha()
+    bomb_rect = bomb_img.get_rect()
+    bomb_rect.left, bomb_rect.top = (5, height-bomb_rect.height-5)
+    bom_num = 3
+    fnt2 = pygame.font.Font('./font/myfont.ttf', 48)
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -122,19 +147,47 @@ def main():
                         pause_img = resume_nor_img
                     else:
                         pause_img = pause_nor_img
+            elif event.type == KEYDOWN:
+                if event.key == K_SPACE:
+                    # 放炸弹
+                    for e in enemies_group:
+                        if e.alive and e.rect.top > 0:
+                            e.alive = False
+                    bom_num -= 1
+
         # 画背景图片
         screen.fill((255, 255, 255))
         screen.blit(bg_img, bg_img.get_rect())
         if not pause_flag:
+            # 判断等级
+            if level == 1 and score > 50000:
+                level = 2
+                # 多5个小敌机 2中敌机 1大敌机
+                add_small_enemy(smallEny_group, enemies_group, 5, bg_img.get_rect())
+                add_mid_enemy(midEny_group, enemies_group, 2, bg_img.get_rect())
+                add_big_enemy(bigEny_group, enemies_group, 1, bg_img.get_rect())
+                # 小敌机速度+2 中敌机速度加1
+                speed_increace(smallEny_group, 2)
+                speed_increace(midEny_group, 1)
+            elif level == 2 and score > 150000:
+                level = 3
+                # 多5个小敌机 2中敌机 1大敌机
+                add_small_enemy(smallEny_group, enemies_group, 10, bg_img.get_rect())
+                add_mid_enemy(midEny_group, enemies_group, 5, bg_img.get_rect())
+                add_big_enemy(bigEny_group, enemies_group, 2, bg_img.get_rect())
+                # 小敌机速度+2 中敌机速度加1
+                speed_increace(smallEny_group, 3)
+                speed_increace(midEny_group, 2)
+
             # 频繁按键
             pressedkeys = pygame.key.get_pressed()
-            if pressedkeys[K_LEFT]:
+            if pressedkeys[K_LEFT] or pressedkeys[K_a]:
                 myplane.move_left()
-            elif pressedkeys[K_RIGHT]:
+            elif pressedkeys[K_RIGHT] or pressedkeys[K_d]:
                 myplane.move_right()
-            elif pressedkeys[K_UP]:
+            elif pressedkeys[K_UP] or pressedkeys[K_w]:
                 myplane.move_up()
-            elif pressedkeys[K_DOWN]:
+            elif pressedkeys[K_DOWN] or pressedkeys[K_s]:
                 myplane.move_down()
 
             # 子弹重置
@@ -231,7 +284,17 @@ def main():
 
         myrender = fnt.render("Score:%d" % score, True, (234, 222, 56))
         # 显示文字
-        screen.blit(myrender, myrender.get_rect())
+        screen.blit(myrender, (5, 5))
+
+        # 显示等级
+        myrender = fnt.render("Level:%d" % level, True, (234,222,56))
+        screen.blit(myrender, (width-myrender.get_rect().width-5, height-myrender.get_rect().height-5))
+
+        # 显示炸弹
+        if bom_num > 0:
+            screen.blit(bomb_img, bomb_rect)
+            myrender = fnt2.render("x %d" % bom_num, True, (234,222,56))
+            screen.blit(myrender, (bomb_rect.right+2, bomb_rect.top))
 
         if myplane.alive:
             if not change_img:

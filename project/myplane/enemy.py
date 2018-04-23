@@ -25,7 +25,7 @@ class SmallEnemy(pygame.sprite.Sprite):
         self.rect.left, self.rect.top = (random.randint(0, self.width-self.rect.width),\
                                          random.randint(-5*self.height, 0))
         # 速度
-        self.speed = 3
+        self.speed = 2
         # 非透明区
         self.mask = pygame.mask.from_surface(self.image)
         # 状态
@@ -64,7 +64,7 @@ class MidEnemy(pygame.sprite.Sprite):
         self.rect.left, self.rect.top = (random.randint(0, self.width-self.rect.width),\
                                          random.randint(-10*self.height, -5 * self.height))
         # 速度
-        self.speed = 2
+        self.speed = 1
         # 非透明区
         self.mask = pygame.mask.from_surface(self.image)
         # 状态
